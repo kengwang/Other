@@ -3,8 +3,21 @@
 //https://api.bilibili.com/x/web-interface/view?aid=314
 //{"code":0,"message":"0","ttl":1,"data":{"aid":314,"bvid":"","view":7445821,"danmaku":321466,"reply":47018,"favorite":267293,"coin":78902,"share":19520,"like":100638,"now_rank":0,"his_rank":12,"no_reprint":0,"copyright":2,"argue_msg":"","evaluation":""}}
 //{"code":0,"message":"0","ttl":1,"data":{"bvid":"","aid":314,"videos":1,"tid":26,"tname":"音MAD","copyright":2,"pic":"http://i0.hdslb.com/bfs/archive/ae4340a8d98a8d63ade05ea96d1db6dd775a697b.jpg","title":"电磁炮真是太可爱了","pubdate":1345387488,"ctime":1497365740,"desc":"补档 原UP主 MadoKami sm8014721 弹幕万岁 \\^o^/","state":0,"attribute":32768,"duration":96,"rights":{"bp":0,"elec":0,"download":1,"movie":0,"pay":0,"hd5":0,"no_reprint":0,"autoplay":1,"ugc_pay":0,"is_cooperation":0,"ugc_pay_preview":0,"no_background":0},"owner":{"mid":57862,"name":"アイリス","face":"http://i1.hdslb.com/bfs/face/2bfa45669104f374807c3150f885c14f0da6cca3.jpg"},"stat":{"aid":314,"view":7445965,"danmaku":321472,"reply":47019,"favorite":267291,"coin":78902,"share":19520,"now_rank":0,"his_rank":12,"like":100641,"dislike":0,"evaluation":""},"dynamic":"","cid":3262388,"dimension":{"width":0,"height":0,"rotate":0},"no_cache":false,"pages":[{"cid":3262388,"page":1,"from":"vupload","part":"","duration":96,"vid":"","weblink":"","dimension":{"width":0,"height":0,"rotate":0}}],"subtitle":{"allow_submit":false,"list":[]}}}
+ini_set('max_execution_time', '0');
+ini_set('memory_limit', '1024G');
+if (substr(PHP_SAPI_NAME(),0,3) !== 'cli'){
+    $fileName='data.csv';
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment; filename="' . $fileName . '"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    $f = fopen("php://output", "w");
+}else{
+    $f = fopen('avdata.csv', 'a');
+}
 
-$f = fopen('avdata.csv', 'a');
 $log = fopen('log.log', 'a');
 fwrite($f, "\xEF\xBB\xBF");//utf8支持
 
